@@ -85,7 +85,7 @@ export default function Component() {
 
     return (
         <>
-            <input className=''></input>
+            {/* <input className=''></input> */}
             <div>Function Component</div>
             <div>Function Component</div>
         </>

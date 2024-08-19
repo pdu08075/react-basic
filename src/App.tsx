@@ -1,14 +1,16 @@
 import React from 'react';
 import Component, { ClassComponent, FunctionComponent } from './component/Component';
 import './App.css';
+import CurlyBraces from './component/CurlyBraces';
 
 function App() {
   return (
-    <div className="App">
-      <Component/>
-      <ClassComponent/>
-      <FunctionComponent/>
-    </div>
+    <>
+      {/* <Component/> */}
+      {/* <ClassComponent/> */}
+      {/* <FunctionComponent/> */}
+      <CurlyBraces></CurlyBraces>
+    </>
   );
 }
 
