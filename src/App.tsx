@@ -2,6 +2,7 @@ import React from 'react';
 import Component, { ClassComponent, FunctionComponent } from './component/Component';
 import './App.css';
 import CurlyBraces from './component/CurlyBraces';
+import Properties from './component_manage/Properties';
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       {/* <Component/> */}
       {/* <ClassComponent/> */}
       {/* <FunctionComponent/> */}
-      <CurlyBraces></CurlyBraces>
+      {/* <CurlyBraces></CurlyBraces> */}
+      <Properties />
     </>
   );
 }
