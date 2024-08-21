@@ -91,6 +91,7 @@ export default function Example2() {
 
     return (
         <div className='table'>
+            {/* 컴포넌트를 활용하여 아래 순서로 점점 생략됨 */}
             {/* <TableHeader/> */}
             {/* <TableRow employeeNumber='202401' employeeName='홍길동' workState={false} /> */}
             {/* <TableRow employeeNumber='202402' employeeName='김영희' workState={true} /> */}
@@ -98,15 +99,20 @@ export default function Example2() {
             {/* <TableRow { ...employee1 } />
             <TableRow { ...employee2 } />
             <TableRow { ...employee3 } /> */}
-            <TableData type='th'/>
+
+            {/* <TableData type='th'/>
             <TableData type='tr' { ...employee1} />
             <TableData type='tr' { ...employee2} />
-            <TableData type='tr' { ...employee3} />
+            <TableData type='tr' { ...employee3} /> */}
 
-            <TableHeader/>
+            {/* <TableHeader/>
             <TableRow { ...employees[0] } />
             <TableRow { ...employees[1] } />
-            <TableRow { ...employees[2] } />
+            <TableRow { ...employees[2] } /> */}
+            
+            {/* map 사용 방식 */}
+            <TableHeader/>
+            {employees.map((employee, index) => <TableRow key={index} {...employee} />)}
         </div>
     )
 }
