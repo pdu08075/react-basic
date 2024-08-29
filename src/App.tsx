@@ -12,9 +12,10 @@ import ForwordingComponent from './interaction/ForwordingComponent';
 import HookComponent1 from './hook/HookComponent1';
 import HookComponent2 from './hook/HookComponent2';
 import CustomHook from './hook/CustomHook';
-import { Routes, Route, Outlet } from 'react-router';
+import { Routes, Route, Outlet, useLocation } from 'react-router';
 import QueryString from './router/QueryString';
 import PathVariable from './router/PathVariable';
+import PathMove from './router/PathMove';
 
 // react-router 패키지:
 // - react의 SPA(Single Page Application)에서 라우팅을 구현하기 위한 라우팅 어플리케이션
@@ -35,12 +36,18 @@ import PathVariable from './router/PathVariable';
 // - index 속성: 현재 경로의 기본 라우터로 지정
 
 function Layout() {
+
+  // useLocation:
+  // - 현재 경로에 대한 객체를 반환하는 react-router 축 함수
+  // - pathname: 현재 path
+  const { pathname } = useLocation();
+
   // <Outlet>: 부모 <Route>에 해당 컴포넌트가 element로 등록되었을 때
   //           자식 <Route>의 element가 해당 위치에 렌더링되도록 하는 컴포넌트
 
   return (
     <div>
-      <div style={{height: '100px', backgroundColor: 'salmon'}}></div>
+      <div style={{height: '100px', backgroundColor: 'salmon'}}>{pathname}</div>
       <Outlet />    {/* 하위 태그의 다른 Route와 함께 보여줌 */}
       <div style={{height: '100px', backgroundColor: 'lightblue'}}></div>
     </div>
@@ -51,7 +58,7 @@ function App() {
   return (
     <Routes>
       <Route index element={<h1>기본 페이지</h1>} />
-      <Route path='/component' element= {<Layout />}>
+      <Route path='/component' element={<Layout />}>
         <Route index element={<Component />} />
         <Route path='function-component' element={<FunctionComponent />} />    {/* 상위 태그에 path가 지정되어 있으니 '/'를 붙이지 않아도 됨 */}
         <Route path='curly-braces' element={<CurlyBraces />} />
@@ -59,8 +66,20 @@ function App() {
       <Route path='/router'>
         <Route path='query-string' element={<QueryString />} />     {/* http://localhost:3000/router/query-string?name=홍길동&age=23 */}
         <Route path='path-variable/:name' element={<PathVariable />} />     {/* http://localhost:3000/router/path-variable/홍길동 */}
+        <Route path='path-move' element={<PathMove />} />
       </Route>
       <Route path='*' element={<h1>404 에러 발생</h1>} />     {/* 지정하지 않은 모든 경로에 대한 처리 */}
+
+      {/* <Properties /> */}
+      {/* <ConditionalRender /> */}
+      {/* <Example2 /> */}
+      {/* <ListRender /> */}
+      {/* <EventComponent /> */}
+      {/* <StateComponent /> */}
+      {/* <ForwordingComponent /> */}
+      {/* <HookComponent1 /> */}
+      {/* <HookComponent2 /> */}
+      {/* <CustomHook /> */}
     </ Routes>
   );
 }
