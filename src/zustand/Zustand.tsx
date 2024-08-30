@@ -41,16 +41,63 @@ export default function Zustand() {
 
     // zustand로 선언한 상태 사용 방법
     // const { 상태, ..., 상태 변경 함수, ... } = useStore훅함수();
-    const { address, setAddress } = useStore();      // store를 반환하는데, store를 객체로 만들어놔서 객체(중괄호)로 작성
+    // const { address, setAddress } = useStore();      // store를 반환하는데, store를 객체로 만들어놔서 객체(중괄호)로 작성
 
+    // const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+    //     const {value} = event.target;
+    //     setAddress(value);
+    // };
+
+    return (
+        <div style={{ padding: '40px', height: '400\px', backgroundColor: 'grey' }}>
+            {/* <h1>{address}</h1>     */}
+            {/* <input value={address} onChange={onChange} /> */}
+            <Sub1Component1 />
+            <Sub1Component2 />
+        </div>
+    )
+}
+
+function Sub1Component1() {
+    return (
+        <div style={{ height: '100px', backgroundColor: 'salmon' }}>
+            <h4>안녕</h4>
+            <Sub2Component1 />
+        </div>
+    )
+}
+
+function Sub1Component2() {
+    return (
+        <div style={{ marginTop: '40px', height: '100px', backgroundColor: 'salmon' }}>
+            <Sub2Component2 />
+        </div>
+    )
+}
+
+function Sub2Component1() {
+    
+    const { address } = useStore();
+
+    return (
+        <div style={{ height: '75px', backgroundColor: 'lightblue' }}>
+            <h3 style={{ color: 'lightyellow' }}>{address}</h3>
+        </div>
+    )
+}
+
+function Sub2Component2() {
+
+    
+    const { address, setAddress } = useStore();
+    
     const onChange = (event: ChangeEvent<HTMLInputElement>) => {
         const {value} = event.target;
         setAddress(value);
-    };
-
+    }
     return (
-        <div>
-            <h1>{address}</h1>    
+        <div style={{ height: '75px', backgroundColor: 'lightblue' }}>
+            <h3 style={{ color: 'lightyellow' }}>{address}</h3>
             <input value={address} onChange={onChange} />
         </div>
     )
