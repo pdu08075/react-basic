@@ -16,6 +16,7 @@ import { Routes, Route, Outlet, useLocation } from 'react-router';
 import QueryString from './router/QueryString';
 import PathVariable from './router/PathVariable';
 import PathMove from './router/PathMove';
+import Zustand from './zustand/Zustand';
 
 // react-router 패키지:
 // - react의 SPA(Single Page Application)에서 라우팅을 구현하기 위한 라우팅 어플리케이션
@@ -68,6 +69,7 @@ function App() {
         <Route path='path-variable/:name' element={<PathVariable />} />     {/* http://localhost:3000/router/path-variable/홍길동 */}
         <Route path='path-move' element={<PathMove />} />
       </Route>
+      <Route path='/zustand' element={<Zustand />} />
       <Route path='*' element={<h1>404 에러 발생</h1>} />     {/* 지정하지 않은 모든 경로에 대한 처리 */}
 
       {/* <Properties /> */}
